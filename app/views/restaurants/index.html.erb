@@ -6,3 +6,12 @@
   <%= text_field_tag(:search, params[:search], placeholder: "Restaurant search") %>
   <%= submit_tag "Find Now", :name => nil %>
 <% end %>
+
+<h2>Our restaurants</h2>
+
+<% @restaurants.each do |restaurant|%>
+  <p>
+    <%= link_to("#{restaurant.name}", restaurant_path(restaurant.id)) %><br>
+    <%= restaurant.summary %>
+  </p>
+<% end %>

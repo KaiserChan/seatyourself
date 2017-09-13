@@ -1,0 +1,30 @@
+<h1><%= @restaurant.name %></h1>
+
+<p>
+  <%= @restaurant.summary %>
+</p>
+
+<p>
+  <%= @restaurant.street_address %><br>
+  <%= @restaurant.city %><br>
+  <%= @restaurant.province %><br>
+  <%= @restaurant.postal_code %><br>
+  <%= @restaurant.phone %><br>
+  <%= @restaurant.email %>
+</p>
+
+<p>
+  <%= link_to("See Full Menu", '#') %>
+</p>
+
+<h2>Book now!</h2>
+
+<%= form_tag @restaurants do |f| %>
+  <%= f.text_field :party_size, placeholder: "Number of guests" %>
+  <%= f.select :reservation_date, ['option1', 'option2'] %>
+  <%submit_tag "Find availability now"%>
+<% end %>
+
+<% @total_slots.each do |slot| %>
+  <p> <%= slot %> </p>
+<% end %>
