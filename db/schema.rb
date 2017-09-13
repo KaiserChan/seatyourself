@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912212047) do
+ActiveRecord::Schema.define(version: 20170913142702) do
 
   create_table "owners", force: :cascade do |t|
     t.string   "name"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170912212047) do
     t.string   "city"
     t.string   "province"
     t.string   "postal_code"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "email"
     t.integer  "menu_id"
     t.integer  "max_capacity"
