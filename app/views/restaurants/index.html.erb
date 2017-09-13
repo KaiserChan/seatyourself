@@ -1,0 +1,8 @@
+<h1>blah</h1>
+
+<h2>Find your favorite restaurant now!</h2>
+
+<%= form_tag restaurants_path, method: :get do %>
+  <%= text_field_tag(:search, params[:search], placeholder: "Restaurant search") %>
+  <%= submit_tag "Find Now", :name => nil %>
+<% end %>
