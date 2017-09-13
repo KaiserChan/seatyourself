@@ -19,12 +19,14 @@
 
 <h2>Book now!</h2>
 
-<%= form_tag @restaurants do |f| %>
-  <%= f.text_field :party_size, placeholder: "Number of guests" %>
-  <%= f.select :reservation_date, ['option1', 'option2'] %>
-  <%submit_tag "Find availability now"%>
+<%= form_tag new_restaurant_path do %>
+  <%= text_field_tag :party_size, nil, placeholder: 'Enter party size' %>
+  <%= select("post", "person_id", @total_available_dates, {prompt: 'Choose Desired Date'}) %>
+
+    <%submit_tag "Find availability now"%>
 <% end %>
 
 <% @total_slots.each do |slot| %>
-  <p> <%= slot %> </p>
+  <p> <%= slot %>
+  </p>
 <% end %>
