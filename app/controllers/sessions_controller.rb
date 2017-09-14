@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     end
 
     owner = Owner.find_by(email: params[:email])
-    if owner && owner.authenticate(params[:password])
+    if owner && owner.authenticate(params[:password]) && user == nil
       session[:owner_id] = owner.id
       redirect_to(root_url, notice: "Logged in as Owner!")
     end

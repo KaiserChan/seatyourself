@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1, h2, .profile, .edit_profile_button, .reservations_list {
+  text-align: center;
+}
+
+.avatar {
+  display: inline-block;
+}
+
+.profile_items {
+  text-align: left;
+  display: inline-block;
+}
+
+.edit_profile_button {
+  display: block;
+}
+
+table, th, td {
+  border: 1px solid black;
+  margin: auto;
+}
