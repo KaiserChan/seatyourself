@@ -61,6 +61,11 @@ class RestaurantsController < ApplicationController
     @owner = current_owner
 
 
+    if @restaurant.save
+      redirect_to 
+    else
+
+    end
 
 
   end

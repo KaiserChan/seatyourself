@@ -1,21 +1,26 @@
 class SessionsController < ApplicationController
   def new
+
   end
 
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to(root_url, notice: "Logged in!")
-      return
+      redirect_to(root_url, notice: "Logged in as User!")
     end
 
     owner = Owner.find_by(email: params[:email])
     if owner && owner.authenticate(params[:password])
       session[:owner_id] = owner.id
-      redirect_to(root_url, notice: "Logged in!")
-      return
+      redirect_to(root_url, notice: "Logged in as Owner!")
     end
+
+    if owner == nil && user == nil
+      flash[:notice]= 'Worng Username/password'
+      render :new
+    end
+
   end
 
   def destroy
