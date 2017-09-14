@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resource :users, only: [:new, :create, :edit, :update]
-  resource :owners, only: [:new, :create, :edit, :update]
+  resource :users, only: [:new, :create, :edit, :show, :update]
+  resource :owners, only: [:new, :create, :edit, :show, :update]
   resources :reservations
   resources :restaurants
-
+  resource :sessions, only: [:new, :create, :destroy]
 
 end
