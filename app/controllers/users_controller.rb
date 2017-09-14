@@ -1,11 +1,28 @@
 class UsersController < ApplicationController
 
   def new
-    #code
+    @user = User.new
+    @provinces = ["ON", "BC", "QC"]
   end
 
   def create
-    #code
+    @user = User.new
+    @provinces = ["ON", "BC", "QC"]
+
+    @user.first_name = params[:user][:first_name]
+    @user.last_name = params[:user][:last_name]
+    @user.email = params[:user][:email]
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
+    @user.phone = params[:user][:phone]
+    @user.city = params[:user][:city]
+    @user.province = params[:province][:province]
+
+    if @user.save
+      render :show
+    else
+      render :new
+    end
   end
 
   def edit
@@ -13,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    #code
+    # @user = User.find(params[:id])
   end
 
   def update

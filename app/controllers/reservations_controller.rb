@@ -9,6 +9,7 @@ class ReservationsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = @restaurant.reservations.new
 
+    @user = @current_user
     @reservation.reservation_date = params[:post][:reservation_date]
     @reservation.party_size = params[:party_size]
     @reservation.restaurant_id = params[:restaurant_id]
@@ -24,6 +25,7 @@ class ReservationsController < ApplicationController
     @reservation.party_size = params[:reservation][:party_size]
     @reservation.restaurant_id = params[:reservation][:restaurant_id]
     @reservation.reservation_time = params[:commit]
+    @reservation.user_id = params[:user_id]
 
     @reservation.save
     redirect_to root_path
