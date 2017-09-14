@@ -37,7 +37,6 @@ nav > ul > li {
     display: inline-block;
     padding: 0 0.5rem;
     margin: 1rem;
-
 }
 
 nav > ul > li > a {
@@ -46,4 +45,27 @@ nav > ul > li > a {
 
 form {
     padding: 4rem;
+}
+
+li.login-button {
+    float: right;
+    position: relative;
+    right: 3rem;
+}
+
+footer {
+    text-align: center;
+    background-color: #444;
+    padding: 0.6px;
+}
+
+footer > ul > li > a {
+  color: white;
+  padding: 2rem;
+}
+
+footer > ul > li {
+    display: inline-block;
+    padding: 0 0.5rem;
+    margin: 1rem;
 }

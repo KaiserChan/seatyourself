@@ -10,11 +10,27 @@
 
 <h2 class="centered">Your Restaurants</h2>
 
-<% current_owner.restaurants.each do |restaurant| %>
-  <p><%= restaurant %></p>
-<% end %>
+<table class="restaurant_table">
+  <tr>
+    <th>Name</th>
+    <th>Summary</th>
+    <th>Action</th>
+  </tr>
+  <% current_owner.restaurants.each do |restaurant| %>
+  <tr class="<%= cycle('oddrow', 'evenrow') -%>">
+    <td class="first"><%= restaurant.name %></td>
+    <td><%= restaurant.summary %></td>
+    <td class="last">
+      <%= link_to('Show', restaurant_path(restaurant.id)) %> | 
+      <%= link_to('Edit', edit_restaurant_path(restaurant.id)) %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+
 
 
 <div class="centered">
-  <%= link_to("Add Resturant", new_restaurant_path) %>
+  <%= button_to("Add Resturant", new_restaurant_path, :class => "blue button") %>
 </div>

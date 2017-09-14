@@ -1,3 +1,33 @@
 // Place all the styles related to the owners controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+td.first {
+    width: 20%;
+}
+
+td {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+td.last {
+  width: 15%;
+}
+
+table tr.oddrow {
+  background-color: #ccc;
+}
+
+table tr.evenrow {
+  background-color: #eee;
+}
+
+table th {
+  background-color: grey;
+  color: white;
+  padding: 0.5rem;
+}
+
+table {
+  margin: 0 2rem;
+}

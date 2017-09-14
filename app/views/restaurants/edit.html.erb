@@ -1,12 +1,10 @@
-<h1>Create New Restaurant</h1>
-
+<h1>Edit <%= @restaurant.name %></h1>
 <% @restaurant.errors.any? %>
   <ul>
     <% @restaurant.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
-
 <%= form_for @restaurant do |f| %>
 <p>
   <%= f.label :name %><br>
@@ -60,7 +58,6 @@
   <%= f.text_field :closing_time %>
 </p>
 <%= f.hidden_field :owner_id, :value => @owner.id %>
-
-<%= f.submit %>
+<%= f.submit %> | <%= link_to('Back to Dashboard', owners_url) %>
 
 <% end %>
