@@ -1,36 +1,39 @@
-<h1><%= @restaurant.name %></h1>
-
-<p>
-  <%= @restaurant.summary %>
-</p>
-
-<p>
-  <%= @restaurant.street_address %><br>
-  <%= @restaurant.city %><br>
-  <%= @restaurant.province %><br>
-  <%= @restaurant.postal_code %><br>
-  <%= @restaurant.phone %><br>
-  <%= @restaurant.email %>
-</p>
-
-<p>
-  <%= link_to("See Full Menu", '#') %>
-</p>
-
-<h2>Book now!</h2>
-
-<%= form_tag("/reservations/new", method: "get") do %>
-  <%= hidden_field_tag :restaurant_id, @restaurant.id %>
-  <%= text_field_tag :party_size, nil, placeholder: 'Enter party size' %>
-  <%= select("post", "reservation_date", @total_available_dates, {prompt: 'Choose Desired Date'}) %>
-
-    <%= submit_tag "Find availability now"%>
-<% end %>
-
-
-
-<!-- <% @total_slots.each do |slot| %>
+<div class="restaurant_information">
+  <h1 class="restaurant_heading">
+    <%= @restaurant.name %>
+  </h1>
   <p>
-    <%= slot %>
+    <%= @restaurant.summary %>
   </p>
-<% end %> -->
+</div>
+<div class="restaurant_address">
+  <p>
+    <%= @restaurant.street_address %><br>
+    <%= @restaurant.city %><br>
+    <%= @restaurant.province %><br>
+    <%= @restaurant.postal_code %><br>
+    <%= @restaurant.phone %><br>
+    <%= @restaurant.email %>
+  </p>
+  <p>
+    <%= link_to("See Full Menu", '#') %>
+  </p>
+</div>
+
+
+
+
+
+<div class="centered">
+  <h2>Book now!</h2>
+    <%= form_tag("/reservations/new", method: "get") do %>
+      <%= hidden_field_tag :restaurant_id, @restaurant.id %>
+      <%= text_field_tag :party_size, nil, placeholder: 'Enter party size' %>
+      <%= select("post", "reservation_date", @total_available_dates, {prompt: 'Choose Desired Date'}) %>
+
+      <%= submit_tag "Find availability now"%>
+    <% end %>
+  <div class="bottom_button">
+    <%= link_to('Back to all restaurants', restaurants_path) %>
+  </div>
+</div>
