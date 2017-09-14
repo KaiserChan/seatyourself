@@ -4,3 +4,11 @@
 <p>
   <%= @restaurant.summary %>
 </p>
+
+<p>The following time slots are available:</p>
+
+<% @restaurant.time_slots.each do |slot| %>
+
+  <a href="#"><%= slot %></a>
+
+<% end %>

@@ -8,8 +8,8 @@ class ReservationsController < ApplicationController
     # byebug
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = @restaurant.reservations.new
-
-    @available_times = @reservation.available_times(params[:post][:reservation_date])
+    #
+    # @available_times = @reservation.available_times(params[:post][:reservation_date])
   end
 
   def create
