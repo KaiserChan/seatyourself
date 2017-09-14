@@ -35,6 +35,7 @@ class ReservationsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:reservation][:restaurant_id])
     @reservation = @restaurant.reservations.new
+    @owner = current_owner
 
     @reservation.reservation_date = params[:reservation][:reservation_date]
     @reservation.party_size = params[:reservation][:party_size]
