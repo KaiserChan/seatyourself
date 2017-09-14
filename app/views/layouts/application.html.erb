@@ -11,16 +11,15 @@
   <ul>
     <li><%= link_to("Home", root_path) %></li> |
     <li><%= link_to("Restaurants", restaurants_path) %></li> |
-    <li><%= link_to("Company", '#') %></li> |
     <li><%= link_to("Contact", '#') %></li>
     <li class="login-button">
       <% if current_user %>
         Signed in as: <%= current_user.email %><br>
-        <%= link_to "Log out", sessions_path("current"), :method => :delete %> <br>
+        <%= link_to "Log out", sessions_path("current"), :method => :delete %> |
         <%= link_to "Dashboard", users_path %>
       <% elsif current_owner %>
         Signed in as: <%= current_owner.email %> <br>
-        <%= link_to "Log out", sessions_path("current"), :method => :delete %> <br>
+        <%= link_to "Log out", sessions_path("current"), :method => :delete %> |
         <%= link_to "Dashboard", owners_path %>
       <% else %>
         <%= link_to "Log in", new_sessions_path %> or <br>
@@ -43,6 +42,10 @@
 
 
 </body>
-
+<footer>
+    <ul class="footer_links">
+      <li><%= link_to("Company", '#') %></li>
+    </ul>
+</footer>
 
 </html>

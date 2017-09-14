@@ -60,15 +60,32 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
     @owner = current_owner
 
+    @restaurant.name = params[:restaurant][:name]
+    @restaurant.summary = params[:restaurant][:summary]
+    @restaurant.street_address = params[:restaurant][:street_address]
+    @restaurant.city = params[:restaurant][:city]
+    @restaurant.province = params[:restaurant][:province]
+    @restaurant.postal_code = params[:restaurant][:postal_code]
+    @restaurant.phone = params[:restaurant][:phone]
+    @restaurant.email = params[:restaurant][:email]
+    @restaurant.max_capacity = params[:restaurant][:max_capacity]
+    @restaurant.opening_time = params[:restaurant][:opening_time]
+    @restaurant.closing_time = params[:restaurant][:closing_time]
+    @restaurant.owner_id = @owner.id
+
 
     if @restaurant.save
-      redirect_to 
+      redirect_to owners_url
     else
-
+      render :new
     end
-
 
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+    @provinces = ["ON", "BC", "QC"]
+    @owner = current_owner
+  end
 
 end
