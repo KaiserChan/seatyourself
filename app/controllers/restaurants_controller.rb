@@ -30,7 +30,11 @@ class RestaurantsController < ApplicationController
       count += 1
     end
 
-
+    if current_user || current_owner
+      render :show
+    else
+      redirect_to new_sessions_path
+    end
     # num_of_slots = ( ((@restaurant.closing_time - @restaurant.opening_time)-1) / SLOT_SIZE )
     #
     #
