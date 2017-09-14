@@ -13,7 +13,7 @@ class OwnersController < ApplicationController
     @owner.password_confirmation = params[:owner][:password_confirmation]
 
     if @owner.save
-      render :show
+      redirect_to root_path
     else
       render :new
     end

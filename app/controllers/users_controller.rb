@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user.province = params[:province][:province]
 
     if @user.save
-      render :show
+      redirect_to root_path
     else
       render :new
     end
