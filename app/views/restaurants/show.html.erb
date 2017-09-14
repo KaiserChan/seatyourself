@@ -30,7 +30,11 @@
     <%= form_tag("/reservations/new", method: "get") do %>
       <%= hidden_field_tag :restaurant_id, @restaurant.id %>
       <%= text_field_tag :party_size, nil, placeholder: 'Enter party size' %>
+      <% if current_user %>
       <%= hidden_field_tag :user_id, current_user.id %>
+      <% elsif current_owner %>
+      <%= hidden_field_tag :user_id, current_owner.id %>
+      <% end %>
       <%= select("post", "reservation_date", @total_available_dates, {prompt: 'Choose Desired Date'}) %>
 
       <%= submit_tag "Find availability now"%>

@@ -1,0 +1,69 @@
+<h1>Create New Restaurant</h1>
+
+<% @restaurant.errors.any? %>
+  <ul>
+    <% @restaurant.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+
+<%= form_for @restaurant do |f| %>
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :summary %><br>
+  <%= f.text_field :summary %>
+</p>
+
+<p>
+  <%= f.label :street_address %><br>
+  <%= f.text_field :street_address %>
+</p>
+
+<p>
+  <%= f.label :city %><br>
+  <%= f.text_field :city %>
+</p>
+
+<p>
+  <%= f.label :province %>
+  <%= select("province", "Province", @provinces) %>
+</p>
+
+<p>
+  <%= f.label :postal_code %><br>
+  <%= f.text_field :postal_code %>
+</p>
+
+<p>
+  <%= f.label :phone %><br>
+  <%= f.text_field :phone %>
+</p>
+
+<p>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</p>
+<p>
+  <%= f.label :phone %><br>
+  <%= f.text_field :phone %>
+</p>
+<p>
+  <%= f.label :max_capacity %><br>
+  <%= f.text_field :max_capacity %>
+</p>
+<p>
+  <%= f.label :opening_time %><br>
+  <%= f.text_field :opening_time %>
+</p>
+<p>
+  <%= f.label :closing_time %><br>
+  <%= f.text_field :closing_time %>
+</p>
+<%= f.hidden_field :owner_id, :value => @owner.id %>
+<%= f.submit %>
+
+<% end %>

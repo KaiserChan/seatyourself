@@ -1,4 +1,20 @@
 <h1>Welcome, <%= current_owner.name %></h1>
 
-Owner Name: <%= current_owner.name %>
-Owner Email: <%= current_owner.email %>
+<p>
+  Name: <%= current_owner.name %>
+</p>
+<p>
+  Email: <%= current_owner.email %>
+</p>
+
+
+<h2 class="centered">Your Restaurants</h2>
+
+<% current_owner.restaurants.each do |restaurant| %>
+  <p><%= restaurant %></p>
+<% end %>
+
+
+<div class="centered">
+  <%= link_to("Add Resturant", new_restaurant_path) %>
+</div>

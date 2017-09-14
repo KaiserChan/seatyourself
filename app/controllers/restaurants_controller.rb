@@ -45,6 +45,21 @@ class RestaurantsController < ApplicationController
     # end
   end
 
+  def new
+    @provinces = ["ON", "BC", "QC"]
+    @restaurant = Restaurant.new
+    @owner = current_owner
+  end
+
+  def create
+    @provinces = ["ON", "BC", "QC"]
+    @restaurant = Restaurant.new
+    @owner = current_owner
+
+
+
+
+  end
 
 
 end

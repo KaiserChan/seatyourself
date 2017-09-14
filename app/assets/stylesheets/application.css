@@ -40,3 +40,7 @@ nav > ul > li {
 nav > ul > li > a {
   text-decoration: none;
 }
+
+form {
+    padding: 4rem;
+}
