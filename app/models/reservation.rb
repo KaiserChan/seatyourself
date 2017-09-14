@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :restaurant
 
-  SLOT_SIZE = 7200
+  # SLOT_SIZE = 7200
   ALLOWED_DATES = 14
 
   # def available_times(date)
@@ -36,5 +36,10 @@ class Reservation < ApplicationRecord
   #   # hash
   #   total_slots
   # end
+
+  
+
+
+
 
 end

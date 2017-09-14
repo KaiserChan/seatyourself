@@ -14,6 +14,22 @@ class Restaurant < ApplicationRecord
     end
   end
 
+  def find_available_slots(date)
+    reservation_dates = reservations.pluck(:reservation_date)
+    reservation_times = reservations.pluck(:reservation_time)
+    if reservation_dates.include?(date)
+      slots = time_slots
+      reservation_times.each do |time|
+        slots.delete_if do |slot|
+          slot == time.strftime("%I%p")
+        end
+      end
+      slots
+    else
+      time_slots
+    end
+  end
+
   def time_slots
 
     result = []

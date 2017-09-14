@@ -9,8 +9,9 @@
 
 
 <div class="time_slot_buttons">
-<p>The following time slots are available:</p>
-  <% @restaurant.time_slots.each do |slot| %>
+<p>The following time slots are available for <%= @reservation.reservation_date.strftime("%A %dth %B") %>:
+</p>
+  <% @restaurant.find_available_slots(@reservation.reservation_date).each do |slot| %>
     <%= form_for @reservation, {:class => 'time_slot_buttons'} do |f| %>
       <%= f.hidden_field :restaurant_id, :value => @reservation.restaurant_id %>
       <%= f.hidden_field :party_size, :value => @reservation.party_size %>
