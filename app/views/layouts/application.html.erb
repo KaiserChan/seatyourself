@@ -15,11 +15,16 @@
     <li><%= link_to("Contact", '#') %></li>
     <li class="login-button">
       <% if current_user %>
-        Signed in as <%= current_user.email %>. <%= link_to "Log out", sessions_path("current"), :method => :delete %>
+        Signed in as: <%= current_user.email %><br>
+        <%= link_to "Log out", sessions_path("current"), :method => :delete %> <br>
+        <%= link_to "Dashboard", users_path %>
       <% elsif current_owner %>
-        Signed in as <%= current_owner.email %>. <%= link_to "Log out", sessions_path("current"), :method => :delete %>
+        Signed in as: <%= current_owner.email %> <br>
+        <%= link_to "Log out", sessions_path("current"), :method => :delete %> <br>
+        <%= link_to "Dashboard", owners_path %>
       <% else %>
-        <%= link_to "Log in", new_sessions_path %> or <%= link_to "User Sign up", new_users_path %><br>
+        <%= link_to "Log in", new_sessions_path %> or <br>
+        <%= link_to "User Sign up", new_users_path %> |
         <%= link_to "Owner Sign up", new_owners_path %>
       <% end %>
     </li>
