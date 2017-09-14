@@ -1,14 +1,28 @@
 <h1>NEW RESERVATION PAGE</h1>
-<h1><%= @restaurant.name %></h1>
+
+
+<div class="restaurant_information">
+<h1 class="restaurant_heading"><%= @restaurant.name %></h1>
 
 <p>
   <%= @restaurant.summary %>
 </p>
+</div>
 
+
+
+<div class="time_slot_buttons">
 <p>The following time slots are available:</p>
-
-<% @restaurant.time_slots.each do |slot| %>
-
-  <a href="#"><%= slot %></a>
-
-<% end %>
+  <% @restaurant.time_slots.each do |slot| %>
+    <%= form_for @reservation, {:class => 'time_slot_buttons'} do |f| %>
+      <%= f.hidden_field :restaurant_id, :value => @reservation.restaurant_id %>
+      <%= f.hidden_field :party_size, :value => @reservation.party_size %>
+      <%= f.hidden_field :reservation_date, :value => @reservation.reservation_date %>
+        <%= f.submit "#{slot}", data: { confirm: 'Are you sure you want to save this reservation?' } %>
+    <% end %>
+  <% end %>
+  <p>Please select one of the available time slots to complete booking</p>
+  <div class="bottom_button">
+    <%= link_to('Back to Booking Page', "/restaurants/#{@restaurant.id}") %>
+  </div>
+</div>

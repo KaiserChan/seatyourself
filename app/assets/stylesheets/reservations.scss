@@ -1,3 +1,25 @@
 // Place all the styles related to the reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+form#new_reservation {
+    display: inline-block;
+    padding: 1rem;
+    text-align: center;
+}
+
+.time_slot_buttons {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.restaurant_information {
+    margin: 0 8rem;
+}
+
+h1.restaurant_heading {
+    text-align: center;
+}
+
+.bottom_button {
+    margin-top: 3rem;
+}

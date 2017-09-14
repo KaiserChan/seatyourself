@@ -1,0 +1,13 @@
+<h1>RESERVATION SHOW PAGE</h1>
+<h1><%= @restaurant.name %></h1>
+
+<p>
+  <%= @restaurant.summary %>
+</p>
+
+<p>The following time slots are available:</p>
+
+<h2>Your booking details</h2>
+<p>Date: <%= @reservation.reservation_date %></p>
+<p>Time: <%= @reservation.reservation_time %></p>
+<p>Party Size: <%= @reservation.party_size %></p>
