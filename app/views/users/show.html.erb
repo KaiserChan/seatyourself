@@ -1,1 +1,39 @@
 <h1>Welcome, <%= current_user.first_name %></h1>
+
+<div class="avatar">
+  <%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaS24lNdD85Jhnc_u6hI1gGntIbrDwDWhPLQSK5HBbTLiPaCZr6Q8Pt8Ej", :alt => "rss feed") %>
+</div>
+
+<div class="profile">
+  <p>
+    <h2>Profile</h2>
+    <ul>
+      <li>First Name: <%= current_user.first_name %></li>
+      <li>Last Name: <%= current_user.last_name %></li>
+      <li>Email: <%= current_user.email %></li>
+    </ul>
+    <%= button_tag "Edit Profile" %>
+  </p>
+</div>
+
+<div class="reservations_list">
+  <h2>Your Reservations</h2>
+  <table>
+    <tr>
+      <th>Restaurant</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Party Size</th>
+      <th>Action</th>
+    </tr>
+    <% current_user.reservations.each do |reservation| %>
+    <tr>
+      <th><%= reservation.restaurant.name %></th>
+      <th><%= reservation.reservation_date.to_date %></th>
+      <th><%= reservation.reservation_time.strftime("%I:%M%p") %></th>
+      <th><%= reservation.party_size %></th>
+      <th><%= link_to "Edit" %> | <%= link_to "Cancel" %></th>
+    </tr>
+    <% end %>
+  </table>
+</div>
