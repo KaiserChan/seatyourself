@@ -4,7 +4,9 @@
   <h2 class="centered">Suggested Restaurants</h2>
   <% @restaurants.each do |restaurant|%>
     <p>
-      <%= link_to("#{restaurant.name}", restaurant_path(restaurant.id)) %><br>
+      <%= link_to("#{restaurant.name}", restaurant_path(restaurant.id)) %>
+    </p>
+    <p>
       <%= restaurant.summary %>
     </p>
   <% end %>

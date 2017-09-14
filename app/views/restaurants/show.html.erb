@@ -26,6 +26,7 @@
 
 <div class="centered">
   <h2>Book now!</h2>
+  <p>Start by selecting the size of your party and date of reservation:</p>
     <%= form_tag("/reservations/new", method: "get") do %>
       <%= hidden_field_tag :restaurant_id, @restaurant.id %>
       <%= text_field_tag :party_size, nil, placeholder: 'Enter party size' %>
