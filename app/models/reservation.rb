@@ -1,7 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :restaurant
 
-  # SLOT_SIZE = 7200
   ALLOWED_DATES = 14
 
   # def available_times(date)
@@ -37,8 +36,12 @@ class Reservation < ApplicationRecord
   #   total_slots
   # end
 
-  
 
+private
+
+def get_max_capacity
+  max_capacity
+end
 
 
 

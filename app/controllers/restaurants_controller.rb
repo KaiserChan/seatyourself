@@ -18,15 +18,13 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @reservations = @restaurant.reservations
     @reservation = @restaurant.reservations.new
-    @total_slots = []
     @total_available_dates = []
-
 
     today = Date.current
     count = 1
     while count <= ALLOWED_DATES
       future_day = today += 1
-      @total_available_dates << future_day.strftime("%A %dth %B")
+      @total_available_dates << future_day
       count += 1
     end
 

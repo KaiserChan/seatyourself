@@ -69,3 +69,13 @@ footer > ul > li {
     padding: 0 0.5rem;
     margin: 1rem;
 }
+
+.slots_error {
+    margin: auto;
+    background-color: #fcf8e3;
+    padding: 4rem 0;
+    border-color: #faebcc;
+    border-radius: 11px;
+    color: #8a6d3b;
+    width: 60%;
+}

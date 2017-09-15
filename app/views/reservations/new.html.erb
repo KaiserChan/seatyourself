@@ -9,18 +9,31 @@
 
 
 <div class="time_slot_buttons">
-<p>The following time slots are available for <%= @reservation.reservation_date.strftime("%A %dth %B") %>:
+<p>The following time slots are available for
+<%= @reservation.reservation_date.strftime("%A %dth %B") %>:
 </p>
-  <% @restaurant.find_available_slots(@reservation.reservation_date).each do |slot| %>
-    <%= form_for @reservation, {:class => 'time_slot_buttons'} do |f| %>
-      <%= f.hidden_field :restaurant_id, :value => @reservation.restaurant_id %>
-      <%= f.hidden_field :party_size, :value => @reservation.party_size %>
-      <%= f.hidden_field :reservation_date, :value => @reservation.reservation_date %>
-      <%= hidden_field_tag :user_id, current_user.id %>
-        <%= f.submit "#{slot}", data: { confirm: 'Are you sure you want to save this reservation?' } %>
+
+  <% if @total_slots.length == 0 %>
+      <div class="slots_error">
+        Sorry, there are no available time slots
+      </div>
+  <% else %>
+    <% @total_slots.each do |slot| %>
+
+      <%= form_for @reservation, {:class => 'time_slot_buttons'} do |f| %>
+        <%= f.hidden_field :restaurant_id, :value => @reservation.restaurant_id %>
+        <%= f.hidden_field :party_size, :value => @reservation.party_size %>
+        <%= f.hidden_field :reservation_date, :value => @reservation.reservation_date %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+          <%= f.submit @restaurant.convert(slot), data: { confirm: 'Are you sure you want to save this reservation?' } %>
+          <br>
+          <%= "#{@restaurant.find_remaining_seats(slot, @reservation.reservation_date)} seats remaining" %>
+
+      <% end %>
     <% end %>
+    <p>Please select one of the available time slots to complete booking!</p>
   <% end %>
-  <p>Please select one of the available time slots to complete booking</p>
+
   <div class="bottom_button">
     <%= link_to('Back to Booking Page', "/restaurants/#{@restaurant.id}") %>
   </div>
