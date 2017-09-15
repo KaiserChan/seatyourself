@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
     @reservation.party_size = params[:party_size]
     @reservation.restaurant_id = params[:restaurant_id]
     @total_slots = @restaurant.find_available_slots(@reservation.reservation_date, @reservation.party_size)
+
   end
 
   def create
