@@ -32,7 +32,7 @@
     <tr>
       <th><%= reservation.restaurant.name %></th>
       <th><%= reservation.reservation_date.to_date %></th>
-      <th><%= reservation.reservation_time.strftime("%I:%M%p") %></th>
+      <th><%= reservation.reservation_time %></th>
       <th><%= reservation.party_size %></th>
       <th><%= link_to "Edit" %> | <%= link_to "Cancel" %></th>
     </tr>
